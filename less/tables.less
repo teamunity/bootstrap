@@ -71,7 +71,7 @@ table {
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
-  .border-radius(4px);
+  .border-radius(@baseBorderRadius);
   th,
   td {
     border-left: 1px solid @tableBorder;
@@ -172,8 +172,10 @@ table {
 // -----------------
 
 // Reset default grid behavior
-table [class*=span],
-.row-fluid table [class*=span] {
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"] {
   display: table-cell;
   float: none; // undo default grid column styles
   margin-left: 0; // undo default grid column styles
