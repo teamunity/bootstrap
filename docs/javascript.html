@@ -19,7 +19,7 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
@@ -112,7 +112,7 @@
           </div>
 
           <h3>Individual or compiled</h3>
-          <p>If you have downloaded the latest version of Bootstrap, both <strong>bootstrap.js</strong> and <strong>bootstrap.min.js</strong> contain all of the plugins listed on this page.</p>
+          <p>Plugins can be included individually (though some have required dependencies), or all at once. Both <strong>bootstrap.js</strong> and <strong>bootstrap.min.js</strong> contain all plugins in a single file.</p>
 
           <h3>Data attributes</h3>
           <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first class API and should be your first consideration when using a plugin.</p>
@@ -136,7 +136,7 @@ $("#myModal").modal('show')                // initializes and invokes show immed
 
           <h3>Events</h3>
           <p>Bootstrap provides custom events for most plugin's unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. <code>show</code>) is triggered at the start of an event, and its past participle form (ex. <code>shown</code>) is trigger on the completion of an action.</p>
-          <p>All infinitive events provide preventDefault functionality. This provides the abililty to stop the execution of an action before it starts.</p>
+          <p>All infinitive events provide preventDefault functionality. This provides the ability to stop the execution of an action before it starts.</p>
 <pre class="prettyprint linenums">
 $('#myModal').on('show', function (e) {
     if (!data) return e.preventDefault() // stops modal from being shown
@@ -181,13 +181,13 @@ $('#myModal').on('show', function (e) {
           <h3>Static example</h3>
           <p>A rendered modal with header, body, and set of actions in the footer.</p>
           <div class="bs-docs-example" style="background-color: #f5f5f5;">
-            <div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto 20px; z-index: 1; max-width: 100%;">
+            <div class="modal" style="position: relative; top: auto; left: auto; right: auto; margin: 0 auto 20px; z-index: 1; max-width: 100%;">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h3>Modal header</h3>
               </div>
               <div class="modal-body">
-                <p>One fine body…</p>
+                <p>One fine body&hellip;</p>
               </div>
               <div class="modal-footer">
                 <a href="#" class="btn">Close</a>
@@ -202,7 +202,7 @@ $('#myModal').on('show', function (e) {
     &lt;h3&gt;Modal header&lt;/h3&gt;
   &lt;/div&gt;
   &lt;div class="modal-body"&gt;
-    &lt;p&gt;One fine body…&lt;/p&gt;
+    &lt;p&gt;One fine body&hellip;&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class="modal-footer"&gt;
     &lt;a href="#" class="btn"&gt;Close&lt;/a&gt;
@@ -259,7 +259,7 @@ $('#myModal').on('show', function (e) {
     &lt;h3 id="myModalLabel"&gt;Modal header&lt;/h3&gt;
   &lt;/div&gt;
   &lt;div class="modal-body"&gt;
-    &lt;p&gt;One fine body…&lt;/p&gt;
+    &lt;p&gt;One fine body&hellip;&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class="modal-footer"&gt;
     &lt;button class="btn" data-dismiss="modal" aria-hidden="true"&gt;Close&lt;/button&gt;
@@ -507,7 +507,7 @@ $('#myModal').on('hidden', function () {
 
           <h3>Methods</h3>
           <h4>$().dropdown('toggle')</h4>
-          <p>A programatic api for toggling menus for a given navbar or tabbed navigation.</p>
+          <p>A programmatic api for toggling menus for a given navbar or tabbed navigation.</p>
         </section>
 
 
@@ -636,7 +636,7 @@ $('[data-spy="scroll"]').each(function () {
 
 
           <h2>Example tabs</h2>
-          <p>Add quick, dynamic tab functionality to transiton through panes of local content, even via dropdown menus.</p>
+          <p>Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.</p>
           <div class="bs-docs-example">
             <ul id="myTab" class="nav nav-tabs">
               <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
@@ -1614,6 +1614,12 @@ $('.carousel').carousel({
                  <td>Method used to sort autocomplete results. Accepts a single argument <code>items</code> and has the scope of the typeahead instance. Reference the current query with <code>this.query</code>.</td>
                </tr>
                <tr>
+                 <td>updater</td>
+                 <td>function</td>
+                 <td>returns selected item</td>
+                 <td>The method used to return selected item. Accepts a single argument, the <code>item</code> and has the scope of the typeahead instance.</td>
+               </tr>
+               <tr>
                  <td>highlighter</td>
                  <td>function</td>
                  <td>highlights all default matches</td>
@@ -1681,7 +1687,7 @@ $('[data-spy="affix"]').each(function () {
                <td>offset</td>
                <td>number | function | object</td>
                <td>10</td>
-               <td>Pixels to offset from screen when calculating position of scroll. If a single number is provide, the offset will be applied in both top and left directions. To listen for a single direction, or multiple unique offsets, just provided an object <code>offset: { x: 10 }</code>. Use a function when you need to dynamically provide an offset (useful for some responsive designs).</td>
+               <td>Pixels to offset from screen when calculating position of scroll. If a single number is provided, the offset will be applied in both top and left directions. To listen for a single direction, or multiple unique offsets, just provide an object <code>offset: { x: 10 }</code>. Use a function when you need to dynamically provide an offset (useful for some responsive designs).</td>
              </tr>
             </tbody>
           </table>
